@@ -635,3 +635,176 @@ footer {
     height: auto;
     display: block;
 }
+
+/* COUNTDOWN TIMER STYLES */
+.countdown-container {
+    margin: 30px auto 25px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 20px;
+    max-width: 500px;
+    border: 1px solid rgba(245,166,35,0.3);
+}
+
+.countdown-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #ffd966;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    background: rgba(0,0,0,0.5);
+    border-radius: 16px;
+    padding: 12px 18px;
+    min-width: 80px;
+    text-align: center;
+    border: 1px solid rgba(245,166,35,0.4);
+}
+
+.countdown-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    font-family: 'Playfair Display', serif;
+    color: #f5a623;
+    display: block;
+    line-height: 1.2;
+}
+
+.countdown-label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffd966;
+}
+
+.countdown-message {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: white;
+}
+
+/* SHARE BUTTONS STYLES */
+.share-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.share-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e4663;
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #fef5e8;
+    padding: 8px 24px;
+    border-radius: 50px;
+}
+
+.share-title i {
+    color: #f5a623;
+}
+
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.whatsapp-share {
+    background: #25D366;
+    color: white;
+    border: none;
+}
+
+.whatsapp-share:hover {
+    background: #128C7E;
+    transform: translateY(-2px);
+}
+
+.facebook-share {
+    background: #1877F2;
+    color: white;
+}
+
+.facebook-share:hover {
+    background: #0d5bd9;
+    transform: translateY(-2px);
+}
+
+.twitter-share {
+    background: #1DA1F2;
+    color: white;
+}
+
+.twitter-share:hover {
+    background: #0c85d0;
+    transform: translateY(-2px);
+}
+
+.copy-link {
+    background: #1e4663;
+    color: white;
+}
+
+.copy-link:hover {
+    background: #0f2f4a;
+    transform: translateY(-2px);
+}
+
+.copy-message {
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #28a745;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.copy-message.show {
+    opacity: 1;
+}
+
+@media (max-width: 600px) {
+    .countdown-box {
+        padding: 8px 12px;
+        min-width: 60px;
+    }
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+    .share-btn {
+        padding: 8px 18px;
+        font-size: 0.8rem;
+    }
+    .countdown-timer {
+        gap: 10px;
+    }
+}
