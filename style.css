@@ -100,6 +100,7 @@ body::after {
 /* Top Bar */
 .top-bar {
     background: rgba(15, 43, 44, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     color: white;
     padding: 12px 5%;
@@ -141,6 +142,7 @@ body::after {
 /* Main Navigation */
 .main-nav {
     background: rgba(10, 10, 20, 0.95);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     padding: 16px 5%;
     display: flex;
@@ -370,6 +372,7 @@ body::after {
 .hero-badge {
     display: inline-block;
     background: rgba(245,166,35,0.15);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 8px 24px;
     border-radius: 50px;
@@ -454,6 +457,7 @@ body::after {
     margin: 40px auto 30px;
     text-align: center;
     background: rgba(0,0,0,0.5);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-radius: 60px;
     padding: 30px;
@@ -547,6 +551,7 @@ body::after {
 /* Section Styles with Glassmorphism - FIXED CENTERING */
 .about {
     background: rgba(20, 20, 35, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 30px auto;
     max-width: 1400px;
@@ -558,6 +563,7 @@ body::after {
 
 .nights-section {
     background: rgba(20, 20, 35, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 30px auto;
     max-width: 1400px;
@@ -569,6 +575,7 @@ body::after {
 
 .expecting-section {
     background: rgba(20, 20, 35, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 30px auto;
     max-width: 1400px;
@@ -580,6 +587,7 @@ body::after {
 
 .flyer-section {
     background: rgba(20, 20, 35, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 30px auto;
     max-width: 1400px;
@@ -591,6 +599,7 @@ body::after {
 
 .nightly-flow {
     background: rgba(20, 20, 35, 0.6);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     margin: 30px auto;
     max-width: 1400px;
@@ -680,6 +689,7 @@ body::after {
 
 .detail-card {
     background: linear-gradient(135deg, rgba(30,30,50,0.8), rgba(20,20,40,0.8));
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 30px;
     padding: 35px 25px;
@@ -756,6 +766,7 @@ body::after {
 
 .night-card {
     background: linear-gradient(135deg, rgba(30,30,50,0.9), rgba(20,20,40,0.9));
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 35px;
     padding: 40px 25px;
@@ -957,6 +968,7 @@ body::after {
     align-items: center;
     gap: 15px;
     font-size: 1rem;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transition: all 0.3s;
     border: 1px solid rgba(245,166,35,0.3);
@@ -1006,6 +1018,7 @@ body::after {
 
 .whatsapp-card {
     background: linear-gradient(135deg, rgba(30,30,50,0.95), rgba(20,20,40,0.95));
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-radius: 40px;
     padding: 45px 40px;
