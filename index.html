@@ -173,7 +173,10 @@
         <div class="section-subtitle">The Journey</div>
         <h2 class="section-title">3 Nights of Encounter</h2>
         <div class="nights-container">
-            <div class="night-card">
+            <div class="night-card" style="position: relative; opacity: 0.85; background: linear-gradient(145deg, #e8f5e9, #c8e6c9); border-color: #4caf50;">
+                <div style="position: absolute; top: 15px; right: 15px; background: #4caf50; color: white; padding: 5px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                    <i class="fas fa-check-circle"></i> COMPLETED ✅
+                </div>
                 <div class="night-icon"><i class="fas fa-hand-sparkles"></i></div>
                 <h3>Night 1 · Wednesday</h3>
                 <div class="night-focus">SURRENDER</div>
@@ -282,64 +285,138 @@
 
     <!-- COUNTDOWN TIMER JAVASCRIPT -->
     <script>
-        // Set the target date for the first night (April 8th, 2026 at 9:00 PM)
-        const targetDate = new Date(2026, 3, 8, 21, 0, 0); // April 8, 2026, 9:00 PM (Month is 0-indexed, so 3 = April)
+// ========== SMART COUNTDOWN TIMER – NIGHT 2 & NIGHT 3 ==========
 
-        function updateCountdown() {
-            const now = new Date();
-            const difference = targetDate - now;
+// Set the dates for each night
+const night2Date = new Date(2026, 3, 9, 21, 0, 0); // April 9, 2026, 9:00 PM
+const night3Date = new Date(2026, 3, 10, 21, 0, 0); // April 10, 2026, 9:00 PM
 
-            if (difference <= 0) {
-                // Event has started
-                document.getElementById('days').innerHTML = '00';
-                document.getElementById('hours').innerHTML = '00';
-                document.getElementById('minutes').innerHTML = '00';
-                document.getElementById('seconds').innerHTML = '00';
-                document.getElementById('countdownMessage').innerHTML = '🎉 THE TIME IS HERE! JOIN US TONIGHT AT WHITE WALL! 🎉';
-                document.getElementById('countdownMessage').style.color = '#f5a623';
-                document.getElementById('countdownMessage').style.fontWeight = 'bold';
-                return;
-            }
+// Function to determine which night is next
+function getNextNight() {
+    const now = new Date();
+    
+    if (now < night2Date) {
+        return {
+            target: night2Date,
+            name: "Night 2 – STRENGTH",
+            message: "🔥 Get ready for Night 2! 🔥"
+        };
+    } else if (now < night3Date) {
+        return {
+            target: night3Date,
+            name: "Night 3 – VICTORY",
+            message: "🏆 The final night is almost here! 🏆"
+        };
+    } else {
+        return {
+            target: null,
+            name: "COMPLETE!",
+            message: "🎉 The 3 nights are complete! Glory to God! 🎉"
+        };
+    }
+}
 
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+// Update the countdown display
+function updateCountdown() {
+    const nextNight = getNextNight();
+    
+    if (nextNight.target === null) {
+        document.getElementById('days').innerHTML = '00';
+        document.getElementById('hours').innerHTML = '00';
+        document.getElementById('minutes').innerHTML = '00';
+        document.getElementById('seconds').innerHTML = '00';
+        document.getElementById('countdownMessage').innerHTML = nextNight.message;
+        document.getElementById('countdownMessage').style.color = '#f5a623';
+        document.getElementById('countdownMessage').style.fontWeight = 'bold';
+        
+        const countdownTitle = document.querySelector('.countdown-title');
+        if (countdownTitle) {
+            countdownTitle.innerHTML = '✨ MISSION ACCOMPLISHED! ✨';
         }
+        return;
+    }
+    
+    const now = new Date();
+    const difference = nextNight.target - now;
+    
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+    
+    const countdownMessage = document.getElementById('countdownMessage');
+    const countdownTitle = document.querySelector('.countdown-title');
+    
+    if (nextNight.name === "Night 2 – STRENGTH") {
+        countdownMessage.innerHTML = '🔥 ' + nextNight.message + ' Come expectant! 🔥';
+        if (countdownTitle) countdownTitle.innerHTML = '⏰ COUNTDOWN TO NIGHT 2 – STRENGTH ⏰';
+    } else if (nextNight.name === "Night 3 – VICTORY") {
+        countdownMessage.innerHTML = '🏆 ' + nextNight.message + ' Don\'t miss the finale! 🏆';
+        if (countdownTitle) countdownTitle.innerHTML = '⏰ COUNTDOWN TO NIGHT 3 – VICTORY ⏰';
+    }
+}
 
-        // Update countdown every second
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
+// Update countdown every second
+setInterval(updateCountdown, 1000);
+updateCountdown();
 
-        // SHARE BUTTONS FUNCTIONALITY
-        // Get the current page URL
-        const currentUrl = encodeURIComponent(window.location.href);
-        const eventTitle = encodeURIComponent("From Vision to Victory - 3 Nights Student Prayer Meeting");
-        const eventDescription = encodeURIComponent("Breaking the cycle of scattered plans. Join us at White Wall, OAU Campus, April 8-10, 9PM-3AM.");
+// ========== SHARE BUTTONS FUNCTIONALITY ==========
+const currentUrl = encodeURIComponent(window.location.href);
+const eventTitle = encodeURIComponent("From Vision to Victory - 3 Nights Student Prayer Meeting");
+const eventDescription = encodeURIComponent("Breaking the cycle of scattered plans. Join us at White Wall, OAU Campus, April 8-10, 9PM-3AM.");
 
-        // Set up share links
-        document.getElementById('shareWhatsApp').href = `https://wa.me/?text=${eventTitle}%0A${eventDescription}%0A${window.location.href}`;
-        document.getElementById('shareFacebook').href = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-        document.getElementById('shareTwitter').href = `https://twitter.com/intent/tweet?text=${eventTitle}&url=${currentUrl}`;
+// WhatsApp Share Button
+const shareWhatsApp = document.getElementById('shareWhatsApp');
+if (shareWhatsApp) {
+    shareWhatsApp.addEventListener('click', function(e) {
+        e.preventDefault();
+        const whatsappMessage = `*${decodeURIComponent(eventTitle)}*%0A%0A${decodeURIComponent(eventDescription)}%0A%0A📍 White Wall, OAU Campus%0A📅 April 8-10, 2026%0A🕘 9PM - 3AM%0A%0A🔗 ${window.location.href}`;
+        const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
+        window.open(whatsappUrl, '_blank');
+    });
+}
 
-        // Copy Link functionality
-        const copyBtn = document.getElementById('copyLinkBtn');
-        const copyMessage = document.getElementById('copyMessage');
+// Facebook Share Button
+const shareFacebook = document.getElementById('shareFacebook');
+if (shareFacebook) {
+    shareFacebook.addEventListener('click', function(e) {
+        e.preventDefault();
+        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+        window.open(fbUrl, '_blank', 'width=600,height=400');
+    });
+}
 
-        copyBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            navigator.clipboard.writeText(window.location.href).then(function() {
-                copyMessage.classList.add('show');
-                setTimeout(function() {
-                    copyMessage.classList.remove('show');
-                }, 2000);
-            });
+// Twitter Share Button
+const shareTwitter = document.getElementById('shareTwitter');
+if (shareTwitter) {
+    shareTwitter.addEventListener('click', function(e) {
+        e.preventDefault();
+        const tweetText = `${decodeURIComponent(eventTitle)}%0A%0A${decodeURIComponent(eventDescription)}%0A%0A`;
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${currentUrl}`;
+        window.open(twitterUrl, '_blank', 'width=600,height=400');
+    });
+}
+
+// Copy Link Button
+const copyBtn = document.getElementById('copyLinkBtn');
+const copyMessage = document.getElementById('copyMessage');
+
+if (copyBtn) {
+    copyBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(window.location.href).then(function() {
+            copyMessage.classList.add('show');
+            setTimeout(function() {
+                copyMessage.classList.remove('show');
+            }, 2000);
         });
+    });
+}
 
         // Create floating particles
         function createParticles() {
