@@ -8,238 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- ========== POPUP MODAL FOR NIGHT 1 THANK YOU ========== -->
-<div id="thankYouPopup" class="popup-overlay">
-    <div class="popup-container">
-        <button class="popup-close" id="closePopup">&times;</button>
-        <div class="popup-icon">
-            <i class="fas fa-fire"></i>
-        </div>
-        <h2>🔥 NIGHT 1 COMPLETE! 🔥</h2>
-        <h3>Thank You for Coming!</h3>
-        <div class="popup-message">
-            <p>🙌 <strong>Surrender was powerful!</strong> 🙌</p>
-            <p>You laid down your plans before God. You confessed self-reliance. You surrendered your goals.</p>
-            <p>✨ <strong>Now get ready for NIGHT 2 – STRENGTH!</strong> ✨</p>
-            <p>Tonight, we break every distraction, every weariness, and every spirit of procrastination.</p>
-            <p>📖 <em>"Those who wait on the Lord shall renew their strength."</em> — Isaiah 40:31</p>
-        </div>
-        <div class="popup-buttons">
-            <button class="popup-btn primary" id="goToNight2">🔥 GO TO NIGHT 2 🔥</button>
-            <button class="popup-btn secondary" id="closePopupBtn">Continue Browsing</button>
-        </div>
-        <p class="popup-footer">📍 Tonight at White Wall | 9PM – 3AM | Come expectant!</p>
-    </div>
-</div>
-
-<style>
-    /* POPUP STYLES */
-    .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.85);
-        backdrop-filter: blur(8px);
-        z-index: 9999;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-    }
-    
-    .popup-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .popup-container {
-        background: linear-gradient(135deg, #0a1f2c, #0e2a3a);
-        border-radius: 32px;
-        padding: 40px 35px;
-        max-width: 500px;
-        width: 90%;
-        text-align: center;
-        position: relative;
-        border: 1px solid rgba(245, 166, 35, 0.4);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-        animation: popupBounce 0.5s ease-out;
-    }
-    
-    @keyframes popupBounce {
-        0% {
-            opacity: 0;
-            transform: scale(0.7);
-        }
-        70% {
-            transform: scale(1.02);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-    
-    .popup-close {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        background: rgba(255,255,255,0.1);
-        border: none;
-        color: #ffd966;
-        font-size: 1.8rem;
-        cursor: pointer;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s;
-    }
-    
-    .popup-close:hover {
-        background: rgba(245,166,35,0.3);
-        transform: rotate(90deg);
-    }
-    
-    .popup-icon {
-        width: 80px;
-        height: 80px;
-        background: linear-gradient(135deg, #f5a623, #e08e2e);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 20px;
-        animation: iconPulse 1.5s infinite;
-    }
-    
-    @keyframes iconPulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(245,166,35,0.7); }
-        50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(245,166,35,0); }
-    }
-    
-    .popup-icon i {
-        font-size: 2.5rem;
-        color: white;
-    }
-    
-    .popup-container h2 {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.8rem;
-        color: #f5a623;
-        margin-bottom: 8px;
-    }
-    
-    .popup-container h3 {
-        font-size: 1.3rem;
-        color: #ffd966;
-        margin-bottom: 20px;
-    }
-    
-    .popup-message {
-        margin: 20px 0;
-    }
-    
-    .popup-message p {
-        color: #e8eef2;
-        line-height: 1.6;
-        margin-bottom: 12px;
-        font-size: 0.95rem;
-    }
-    
-    .popup-buttons {
-        display: flex;
-        gap: 15px;
-        justify-content: center;
-        margin: 25px 0 15px;
-        flex-wrap: wrap;
-    }
-    
-    .popup-btn {
-        padding: 12px 24px;
-        border-radius: 50px;
-        font-weight: 700;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-        font-size: 0.9rem;
-    }
-    
-    .popup-btn.primary {
-        background: linear-gradient(135deg, #f5a623, #e08e2e);
-        color: #1e2f3f;
-    }
-    
-    .popup-btn.primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 25px rgba(245,166,35,0.4);
-    }
-    
-    .popup-btn.secondary {
-        background: rgba(255,255,255,0.1);
-        color: #ffd966;
-        border: 1px solid rgba(245,166,35,0.4);
-    }
-    
-    .popup-btn.secondary:hover {
-        background: rgba(245,166,35,0.2);
-        transform: translateY(-2px);
-    }
-    
-    .popup-footer {
-        font-size: 0.7rem;
-        color: #9aaec5;
-        margin-top: 15px;
-    }
-</style>
-
-<script>
-    // POPUP FUNCTIONALITY
-    // Check if popup has been shown before (using localStorage)
-    const hasSeenPopup = localStorage.getItem('night1ThankYou');
-    
-    // If popup hasn't been shown, show it
-    if (!hasSeenPopup) {
-        setTimeout(function() {
-            document.getElementById('thankYouPopup').classList.add('active');
-        }, 1000); // Shows 1 second after page loads
-    }
-    
-    // Close popup functions
-    function closePopup() {
-        document.getElementById('thankYouPopup').classList.remove('active');
-        localStorage.setItem('night1ThankYou', 'true');
-    }
-    
-    // Close button
-    document.getElementById('closePopup').addEventListener('click', closePopup);
-    document.getElementById('closePopupBtn').addEventListener('click', closePopup);
-    
-    // Close when clicking outside the popup
-    document.getElementById('thankYouPopup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePopup();
-        }
-    });
-    
-    // GO TO NIGHT 2 button - scrolls to Night 2 section
-    document.getElementById('goToNight2').addEventListener('click', function() {
-        const night2Section = document.getElementById('nights');
-        if (night2Section) {
-            night2Section.scrollIntoView({ behavior: 'smooth' });
-        }
-        closePopup();
-    });
-</script>
 <body>
     <!-- Top Bar -->
     <div class="top-bar">
-        <span><i class="fas fa-church"></i> From Vision to Victory · 3 Nights of Breakthrough</span>
+        <span><i class="fas fa-church"></i> From Vision to Victory · 3 Nights of Breakthrough · COMPLETED! ✅</span>
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -259,14 +31,15 @@
             </div>
         </div>
         <ul class="nav-links">
-            <li><a href="#">Home</a></li>           
-            <li><a href="#expecting">Expectations</a></li>
-            <li><a href="#flyer">Flyer</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#nights">3 Nights</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#expecting">Testimonies</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
 
-    <!-- Hero Section with Elegant Crest & Countdown Timer -->
+    <!-- Hero Section with Elegant Crest -->
     <div class="hero">
         <div class="hero-content">
             <div class="hero-crest">
@@ -280,44 +53,37 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-badge"><i class="fas fa-fire"></i> 3 NIGHTS · POWER · PRAYER · ALIGNMENT</div>
+            <div class="hero-badge" style="background: #4caf50; color: white;">
+                <i class="fas fa-check-circle"></i> PROGRAM COMPLETED SUCCESSFULLY! ✅
+            </div>
             <h1>FROM VISION<br>TO VICTORY</h1>
-            <p>Breaking the cycle of scattered plans. Finishing what you start. A 3-night prayer encounter for students who are ready to break free from inconsistency and walk in divine alignment.</p>
+            <p>3 nights of surrender, strength, and victory are now complete. Thank you to every student who showed up, prayed, and made a covenant to finish strong. What God has started, He will bring to completion!</p>
             
-            <!-- COUNTDOWN TIMER -->
-            <div class="countdown-container">
-                <div class="countdown-title">🔥 Countdown to Breakthrough 🔥</div>
-                <div class="countdown-timer">
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="days">00</span>
-                        <span class="countdown-label">Days</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="hours">00</span>
-                        <span class="countdown-label">Hours</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="minutes">00</span>
-                        <span class="countdown-label">Mins</span>
-                    </div>
-                    <div class="countdown-box">
-                        <span class="countdown-number" id="seconds">00</span>
-                        <span class="countdown-label">Secs</span>
-                    </div>
+            <!-- COMPLETION MESSAGE (replacing countdown) -->
+            <div class="completion-container">
+                <div class="completion-icon">
+                    <i class="fas fa-flag-checkered"></i>
                 </div>
-                <div class="countdown-message" id="countdownMessage"></div>
+                <div class="completion-title">🔥 MISSION ACCOMPLISHED! 🔥</div>
+                <div class="completion-message">
+                    <p>All 3 nights are complete! Glory to God! 🎉</p>
+                    <p>🙌 Surrender · 💪 Strength · 🏆 Victory</p>
+                </div>
+                <div class="completion-verse">
+                    <i class="fas fa-bible"></i> "Being confident of this very thing, that He who has begun a good work in you will complete it until the day of Jesus Christ." — Philippians 1:6
+                </div>
             </div>
 
-            <a href="#" class="btn"><i class="fas fa-calendar-alt"></i> Join Us · April 8–10 | 9PM – 3AM</a>
+            <a href="#gallery" class="btn"><i class="fas fa-images"></i> View Gallery</a>
         </div>
     </div>
 
     <!-- About Section -->
     <div class="about">
-        <div class="section-subtitle">Who We Are</div>
-        <h2 class="section-title">A Gathering for Finishers</h2>
+        <div class="section-subtitle">What God Did</div>
+        <h2 class="section-title">3 Nights of Encounter</h2>
         <div class="about-text">
-            <p>This is a student-led prayer initiative born out of a deep burden for every student who has made ambitious plans—5.0 CGPA, completing projects, achieving goals—only to see those plans scatter midway. We believe God is calling students to break that cycle and step into a lifestyle of finishing strong.</p>
+            <p>Over 3 powerful nights at White Wall, students gathered to surrender their plans, receive strength to overcome distractions, and make a covenant to finish strong. Lives were changed, chains were broken, and a generation of finishers was raised!</p>
             <p style="margin-top: 15px;"><strong>Theme Scripture:</strong> "Commit your works to the Lord, and your plans will be established." — Proverbs 16:3</p>
         </div>
     </div>
@@ -333,139 +99,135 @@
             <div class="detail-card">
                 <i class="fas fa-calendar-alt"></i>
                 <h4>DATES</h4>
-                <p>April 8th – 10th</p>
+                <p>April 8th – 10th, 2026</p>
             </div>
             <div class="detail-card">
                 <i class="fas fa-clock"></i>
-                <h4>TIME</h4>
-                <p>9:00 PM – 3:00 AM</p>
+                <h4>DURATION</h4>
+                <p>9:00 PM – 3:00 AM (6 Hours/Night)</p>
             </div>
             <div class="detail-card">
                 <i class="fas fa-users"></i>
-                <h4>AUDIENCE</h4>
-                <p>All Students · Believers & Seekers</p>
+                <h4>ATTENDEES</h4>
+                <p>Students · Believers & Seekers</p>
             </div>
         </div>
     </div>
 
-    <!-- FLYER SECTION + WHATSAPP GROUP + SHARE BUTTONS -->
-    <div class="flyer-section" id="flyer">
-        <div class="section-subtitle">Share This</div>
-        <h2 class="section-title">Event Flyer</h2>
-        <div class="flyer-container">
-            <!-- 👇👇👇 PUT YOUR FLYER IMAGE HERE 👇👇👇 -->
-            <img src="program-flyer.jpg" alt="From Vision to Victory Flyer" class="flyer-image">
-            <!-- ☝️☝️☝️ PUT YOUR FLYER IMAGE HERE ☝️☝️☝️ -->
+    <!-- PHOTO GALLERY SECTION -->
+    <div class="gallery-section" id="gallery">
+        <div class="section-subtitle">Memories</div>
+        <h2 class="section-title">Photo Gallery</h2>
+        <p class="gallery-description">Moments from our 3 nights of prayer, worship, and breakthrough at White Wall.</p>
+        
+        <div class="gallery-grid">
+            <!-- 👇👇👇 REPLACE THESE IMAGE PATHS WITH YOUR ACTUAL PHOTOS 👇👇👇 -->
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Night+1+-+Surrender" alt="Night 1 - Surrender" class="gallery-image">
+                <div class="gallery-caption">Night 1 – Surrender</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Night+2+-+Strength" alt="Night 2 - Strength" class="gallery-image">
+                <div class="gallery-caption">Night 2 – Strength</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Night+3+-+Victory" alt="Night 3 - Victory" class="gallery-image">
+                <div class="gallery-caption">Night 3 – Victory</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Worship+Session" alt="Worship Session" class="gallery-image">
+                <div class="gallery-caption">Worship Session</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Prayer+Moments" alt="Prayer Moments" class="gallery-image">
+                <div class="gallery-caption">Prayer Moments</div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://placehold.co/600x400/1e4663/white?text=Group+Photo" alt="Group Photo" class="gallery-image">
+                <div class="gallery-caption">Group Photo</div>
+            </div>
+            <!-- ☝️☝️☝️ REPLACE WITH YOUR ACTUAL PHOTOS ☝️☝️☝️ -->
         </div>
-
-        <!-- SHARE BUTTONS SECTION -->
-        <div class="share-section">
-            <div class="share-title">
-                <i class="fas fa-share-alt"></i> Share This Event
-            </div>
-            <div class="share-buttons">
-                <a href="#" class="share-btn whatsapp-share" id="shareWhatsApp" target="_blank">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
-                </a>
-                <a href="#" class="share-btn facebook-share" id="shareFacebook" target="_blank">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                </a>
-                <a href="#" class="share-btn twitter-share" id="shareTwitter" target="_blank">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-                <a href="#" class="share-btn copy-link" id="copyLinkBtn">
-                    <i class="fas fa-link"></i> Copy Link
-                </a>
-            </div>
-            <div id="copyMessage" class="copy-message">✅ Link copied to clipboard!</div>
-        </div>
-
-        <!-- WhatsApp Group Section -->
-        <div class="whatsapp-group-section">
-            <div class="whatsapp-card">
-                <div class="whatsapp-icon">
-                    <i class="fab fa-whatsapp"></i>
-                </div>
-                <h3>Join Our WhatsApp Group</h3>
-                <p>Get updates, prayer points, and connect with other students preparing for the meeting.</p>
-                <a href="https://chat.whatsapp.com/EQBqNy7mKq1HrEeqTKDLls" target="_blank" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> Join WhatsApp Group
-                </a>
-                <p class="whatsapp-link-text">🔗 Link: https://chat.whatsapp.com/EQBqNy7mKq1HrEeqTKDLls</p>
-            </div>
+        
+        <div class="gallery-note">
+            <i class="fas fa-camera"></i> Want to share your photos? Send them to 07018976135
         </div>
     </div>
 
-    <!-- 3 Nights Section -->
+    <!-- 3 Nights Section (with Completed badges) -->
     <div class="nights-section" id="nights">
         <div class="section-subtitle">The Journey</div>
         <h2 class="section-title">3 Nights of Encounter</h2>
+        
         <div class="nights-container">
-            <div class="night-card" style="position: relative; opacity: 0.85; background: linear-gradient(145deg, #e8f5e9, #c8e6c9); border-color: #4caf50;">
-                <div style="position: absolute; top: 15px; right: 15px; background: #4caf50; color: white; padding: 5px 12px; border-radius: 30px; font-size: 0.7rem; font-weight: bold; display: flex; align-items: center; gap: 5px;">
-                    <i class="fas fa-check-circle"></i> COMPLETED ✅
-                </div>
+            <!-- NIGHT 1 - COMPLETED -->
+            <div class="night-card completed">
+                <div class="completed-badge"><i class="fas fa-check-circle"></i> COMPLETED</div>
                 <div class="night-icon"><i class="fas fa-hand-sparkles"></i></div>
                 <h3>Night 1 · Wednesday</h3>
                 <div class="night-focus">SURRENDER</div>
-                <div class="night-desc">Laying down self-reliant plans before God. Repentance from making plans without seeking His will. Committing every goal to the Lord.</div>
+                <div class="night-desc">Students laid down self-reliant plans before God. Repentance was made. Goals were surrendered to the Lord.</div>
                 <div class="night-scripture">📖 Proverbs 16:3 · James 4:13–15</div>
             </div>
-            <div class="night-card">
+
+            <!-- NIGHT 2 - COMPLETED -->
+            <div class="night-card completed">
+                <div class="completed-badge"><i class="fas fa-check-circle"></i> COMPLETED</div>
                 <div class="night-icon"><i class="fas fa-bolt"></i></div>
                 <h3>Night 2 · Thursday</h3>
                 <div class="night-focus">STRENGTH</div>
-                <div class="night-desc">Breaking weariness, distractions, and the spirit of procrastination. Receiving renewed strength to press forward without giving up.</div>
+                <div class="night-desc">Weariness and distractions were broken. Students received renewed strength to press forward.</div>
                 <div class="night-scripture">📖 Isaiah 40:31 · Galatians 6:9</div>
             </div>
-            <div class="night-card">
+
+            <!-- NIGHT 3 - COMPLETED -->
+            <div class="night-card completed">
+                <div class="completed-badge"><i class="fas fa-check-circle"></i> COMPLETED</div>
                 <div class="night-icon"><i class="fas fa-crown"></i></div>
                 <h3>Night 3 · Friday</h3>
                 <div class="night-focus">VICTORY</div>
-                <div class="night-desc">Establishing God-ordained goals. Covenant to finish strong. Commissioning and sending forth as finishers.</div>
+                <div class="night-desc">God-ordained goals were established. A covenant was made to finish strong. Students were commissioned as finishers.</div>
                 <div class="night-scripture">📖 Philippians 3:12–14 · Joshua 1:9</div>
             </div>
         </div>
     </div>
 
-    <!-- Nightly Flow -->
-    <div class="nightly-flow">
-        <div class="section-subtitle">Each Night Includes</div>
-        <h2 class="section-title">What to Expect</h2>
-        <div class="flow-tags">
-            <span class="flow-tag"><i class="fas fa-chalkboard-teacher"></i> Teaching & Preaching</span>
-            <span class="flow-tag"><i class="fas fa-music"></i> Acoustic Worship</span>
-            <span class="flow-tag"><i class="fas fa-pray"></i> Guided Prayer & Intercession</span>
-            <span class="flow-tag"><i class="fas fa-hand-peace"></i> Altar Response & Covenant</span>
-            <span class="flow-tag"><i class="fas fa-users"></i> Small Group Breakthrough</span>
-        </div>
-    </div>
-
-    <!-- Come Expecting -->
+    <!-- Testimonies / Come Expecting Section -->
     <div class="expecting-section" id="expecting">
-        <div class="section-subtitle">Come Expecting</div>
-        <h2 class="section-title">What God Will Do</h2>
-        <div class="expecting-grid">
-            <div class="expect-item"><i class="fas fa-link-slash"></i> Breaking chains holding you back</div>
-            <div class="expect-item"><i class="fas fa-chart-line"></i> Freedom from cycles of delay and inconsistency</div>
-            <div class="expect-item"><i class="fas fa-brain"></i> Victory over distractions and weariness</div>
-            <div class="expect-item"><i class="fas fa-dumbbell"></i> Strength to push through to the finish line</div>
-            <div class="expect-item"><i class="fas fa-flag-checkered"></i> Grace to finally finish strong</div>
-            <div class="expect-item"><i class="fas fa-hand-holding-heart"></i> Clarity & direction for your semester goals</div>
+        <div class="section-subtitle">What God Did</div>
+        <h2 class="section-title">Testimonies & Breakthroughs</h2>
+        <div class="testimony-grid">
+            <div class="testimony-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"I surrendered my 5.0 CGPA goal to God and felt a huge weight lift off me. I know now that He is in control!"</p>
+                <h4>- Student</h4>
+            </div>
+            <div class="testimony-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"The prayer against distractions broke something in me. I deleted social media apps and I'm ready to focus!"</p>
+                <h4>- Student</h4>
+            </div>
+            <div class="testimony-card">
+                <i class="fas fa-quote-left"></i>
+                <p>"Night 3 changed my life. I made a covenant to finish strong, and I believe this semester will be different!"</p>
+                <h4>- Student</h4>
+            </div>
         </div>
     </div>
 
-    <!-- What to Bring -->
+    <!-- What to Bring (Updated) -->
     <div class="bring-section" id="prayer">
-        <div class="section-subtitle" style="color: #ffd966;">Prepare Your Heart</div>
-        <h2 class="section-title" style="color: white;">What to Bring</h2>
+        <div class="section-subtitle" style="color: #ffd966;">Keep the Fire Burning</div>
+        <h2 class="section-title" style="color: white;">Stay Connected</h2>
         <div class="bring-grid">
-            <div class="bring-item"><i class="fas fa-bible"></i> Bible, notebook, pen</div>
-            <div class="bring-item"><i class="fas fa-heart"></i> A heart ready for breakthrough</div>
+            <div class="bring-item"><i class="fas fa-pray"></i> Keep praying daily</div>
+            <div class="bring-item"><i class="fas fa-bible"></i> Read God's Word</div>
+            <div class="bring-item"><i class="fas fa-users"></i> Stay accountable</div>
+            <div class="bring-item"><i class="fas fa-flag-checkered"></i> Finish strong!</div>
         </div>
     </div>
 
-    <!-- Footer with Crest Logo -->
+    <!-- Footer -->
     <footer id="contact">
         <div class="footer-content">
             <div class="footer-col">
@@ -480,13 +242,15 @@
                 </div>
                 <p>3 Nights of Prayer & Alignment</p>
                 <p>White Wall, OAU Campus</p>
-                <p>April 8–10 | 9PM – 3AM</p>
+                <p>April 8–10, 2026 | 9PM – 3AM</p>
+                <p style="margin-top: 10px; color: #4caf50;"><i class="fas fa-check-circle"></i> Program Completed!</p>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
                 <a href="#">Home</a>
-                <a href="#expecting">Expectations</a>
-                <a href="#flyer">Flyer</a>
+                <a href="#nights">3 Nights</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#expecting">Testimonies</a>
             </div>
             <div class="footer-col">
                 <h4>Contact</h4>
@@ -495,7 +259,7 @@
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="https://chat.whatsapp.com/EQBqNy7mKq1HrEeqTKDLls?mode=gi_t"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-col">
@@ -506,188 +270,9 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 Coldwande 😍 | Student Prayer Meeting | All Rights Reserved</p>
+            <p>© 2026 From Vision to Victory | Student Prayer Meeting | All Rights Reserved</p>
             <p style="margin-top: 8px;">"I can do all things through Christ who strengthens me." — Philippians 4:13</p>
         </div>
     </footer>
-
-    <!-- COUNTDOWN TIMER JAVASCRIPT -->
-    <script>
-// ========== SMART COUNTDOWN TIMER – NIGHT 2 & NIGHT 3 ==========
-
-// Set the dates for each night
-const night2Date = new Date(2026, 3, 9, 21, 0, 0); // April 9, 2026, 9:00 PM
-const night3Date = new Date(2026, 3, 10, 21, 0, 0); // April 10, 2026, 9:00 PM
-
-// Function to determine which night is next
-function getNextNight() {
-    const now = new Date();
-    
-    if (now < night2Date) {
-        return {
-            target: night2Date,
-            name: "Night 2 – STRENGTH",
-            message: "🔥 Get ready for Night 2! 🔥"
-        };
-    } else if (now < night3Date) {
-        return {
-            target: night3Date,
-            name: "Night 3 – VICTORY",
-            message: "🏆 The final night is almost here! 🏆"
-        };
-    } else {
-        return {
-            target: null,
-            name: "COMPLETE!",
-            message: "🎉 The 3 nights are complete! Glory to God! 🎉"
-        };
-    }
-}
-
-// Update the countdown display
-function updateCountdown() {
-    const nextNight = getNextNight();
-    
-    if (nextNight.target === null) {
-        document.getElementById('days').innerHTML = '00';
-        document.getElementById('hours').innerHTML = '00';
-        document.getElementById('minutes').innerHTML = '00';
-        document.getElementById('seconds').innerHTML = '00';
-        document.getElementById('countdownMessage').innerHTML = nextNight.message;
-        document.getElementById('countdownMessage').style.color = '#f5a623';
-        document.getElementById('countdownMessage').style.fontWeight = 'bold';
-        
-        const countdownTitle = document.querySelector('.countdown-title');
-        if (countdownTitle) {
-            countdownTitle.innerHTML = '✨ MISSION ACCOMPLISHED! ✨';
-        }
-        return;
-    }
-    
-    const now = new Date();
-    const difference = nextNight.target - now;
-    
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-    
-    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
-    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
-    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
-    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
-    
-    const countdownMessage = document.getElementById('countdownMessage');
-    const countdownTitle = document.querySelector('.countdown-title');
-    
-    if (nextNight.name === "Night 2 – STRENGTH") {
-        countdownMessage.innerHTML = '🔥 ' + nextNight.message + ' Come expectant! 🔥';
-        if (countdownTitle) countdownTitle.innerHTML = '⏰ COUNTDOWN TO NIGHT 2 – STRENGTH ⏰';
-    } else if (nextNight.name === "Night 3 – VICTORY") {
-        countdownMessage.innerHTML = '🏆 ' + nextNight.message + ' Don\'t miss the finale! 🏆';
-        if (countdownTitle) countdownTitle.innerHTML = '⏰ COUNTDOWN TO NIGHT 3 – VICTORY ⏰';
-    }
-}
-
-// Update countdown every second
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-// ========== SHARE BUTTONS FUNCTIONALITY ==========
-const currentUrl = encodeURIComponent(window.location.href);
-const eventTitle = encodeURIComponent("From Vision to Victory - 3 Nights Student Prayer Meeting");
-const eventDescription = encodeURIComponent("Breaking the cycle of scattered plans. Join us at White Wall, OAU Campus, April 8-10, 9PM-3AM.");
-
-// WhatsApp Share Button
-const shareWhatsApp = document.getElementById('shareWhatsApp');
-if (shareWhatsApp) {
-    shareWhatsApp.addEventListener('click', function(e) {
-        e.preventDefault();
-        const whatsappMessage = `*${decodeURIComponent(eventTitle)}*%0A%0A${decodeURIComponent(eventDescription)}%0A%0A📍 White Wall, OAU Campus%0A📅 April 8-10, 2026%0A🕘 9PM - 3AM%0A%0A🔗 ${window.location.href}`;
-        const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
-        window.open(whatsappUrl, '_blank');
-    });
-}
-
-// Facebook Share Button
-const shareFacebook = document.getElementById('shareFacebook');
-if (shareFacebook) {
-    shareFacebook.addEventListener('click', function(e) {
-        e.preventDefault();
-        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-        window.open(fbUrl, '_blank', 'width=600,height=400');
-    });
-}
-
-// Twitter Share Button
-const shareTwitter = document.getElementById('shareTwitter');
-if (shareTwitter) {
-    shareTwitter.addEventListener('click', function(e) {
-        e.preventDefault();
-        const tweetText = `${decodeURIComponent(eventTitle)}%0A%0A${decodeURIComponent(eventDescription)}%0A%0A`;
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=${currentUrl}`;
-        window.open(twitterUrl, '_blank', 'width=600,height=400');
-    });
-}
-
-// Copy Link Button
-const copyBtn = document.getElementById('copyLinkBtn');
-const copyMessage = document.getElementById('copyMessage');
-
-if (copyBtn) {
-    copyBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        navigator.clipboard.writeText(window.location.href).then(function() {
-            copyMessage.classList.add('show');
-            setTimeout(function() {
-                copyMessage.classList.remove('show');
-            }, 2000);
-        });
-    });
-}
-
-        // Create floating particles
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.className = 'particles';
-            document.body.appendChild(particlesContainer);
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                const size = Math.random() * 5 + 2;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = Math.random() * 10 + 5 + 's';
-                particle.style.animationDelay = Math.random() * 5 + 's';
-                particle.style.opacity = Math.random() * 0.5 + 0.2;
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Create twinkling stars
-        function createStars() {
-            const starsContainer = document.createElement('div');
-            starsContainer.className = 'stars';
-            document.querySelector('.hero').appendChild(starsContainer);
-            
-            for (let i = 0; i < 100; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                const size = Math.random() * 2 + 1;
-                star.style.width = size + 'px';
-                star.style.height = size + 'px';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.animationDuration = Math.random() * 2 + 1 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
-
-createParticles();
-createStars();
-    </script>
 </body>
 </html>
